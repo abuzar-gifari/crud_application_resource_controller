@@ -50,7 +50,8 @@ class StudentController extends Controller
 
     public function show($id)
     {
-        //
+        $student=Student::find($id);
+        return view('student.show',compact('student'));
     }
 
     /**
@@ -61,7 +62,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student=Student::find($id);
+        return view('student.edit',compact('student')); 
     }
 
     /**
@@ -73,7 +75,16 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //dd($request);
+        $student = Student::find($id);
+        $student->name=$request->input('name');
+        $student->course=$request->input('course');
+        $student->section=$request->input('section');
+        $student->email=$request->input('email');
+        $student->update();
+        // return redirect('students')->back()->with('message','student created successfully');
+        return redirect('students')->with('message','student updated successfully');
+        // return view('student.index');
     }
 
     /**

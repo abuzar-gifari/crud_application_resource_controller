@@ -44,10 +44,10 @@
                                         <td>{{ $student->section }}</td>
                                         <td>{{ $student->email }}</td>
                                         <td>
-                                            <a href="" class="btn btn-primary">View</a>
+                                            <a href="{{ url('students/'.$student->id) }}" class="btn btn-primary">View</a>
                                         </td>
                                         <td>
-                                            <a href="" class="btn btn-success">Edit</a>
+                                            <a href="{{ url('students/'.$student->id.'/edit') }}" class="btn btn-success">Edit</a>
                                         </td>
                                         <td>
                                             <a href="" class="btn btn-danger">Delete</a>
